@@ -7,8 +7,13 @@ class cloud extends MovableObjects {
     constructor() {
         super().loadImage('img/5.Fondo/Capas/4.nubes/1.png')
         this.x = Math.random() * 500;
-        this.y = 50;
-        this.width = 500;
-        this.height = 250;
+        this.animate();
+
+    }
+
+    animate() {
+        setInterval(() => {
+            this.x -= 0.15;
+        }, 1000 / 60);
     }
 }
