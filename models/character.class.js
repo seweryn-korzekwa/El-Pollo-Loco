@@ -10,7 +10,6 @@ class Character extends MovableObjects {
         'img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-25.png',
         'img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-26.png'
     ];
-    currentImage = 0;
 
     constructor() {
         super().loadImage('img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png');
@@ -24,7 +23,7 @@ class Character extends MovableObjects {
             let path = this.IMG_WALKING[i];
             this.img = this.imageCache[path];
             this.currentImage++;
-        }, 1000);
+        }, 1000 / 8);
     }
 
     jump() {
