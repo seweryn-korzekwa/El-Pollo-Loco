@@ -3,11 +3,14 @@ class World {
     ctx;
     canvas;
     character = new Character();
+    keyboard;
 
-    constructor(canvas) {
+    constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
         this.draw();
+        this.keyboard = keybeard;
+        this.setWorld();
     }
 
 
@@ -50,5 +53,9 @@ class World {
 
     addToMap(object) {
         this.ctx.drawImage(object.img, object.x, object.y, object.width, object.height);
+    }
+
+    setWorld() {
+        this.character.world = this;
     }
 }
