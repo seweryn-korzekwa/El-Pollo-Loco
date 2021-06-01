@@ -29,7 +29,7 @@ class Character extends MovableObjects {
                 this.otherDirection = true
                 this.x -= this.speed;
             }
-        }, 1000);/* 1000 / 60 */
+        }, 1000 / 60);
 
         setInterval(() => {
             if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
@@ -38,7 +38,7 @@ class Character extends MovableObjects {
                 this.img = this.imageCache[path];
                 this.currentImage++;
             }
-        }, 1000); /* 1000 / 8 */
+        }, 1000 / 8);
     }
 
     jump() {
