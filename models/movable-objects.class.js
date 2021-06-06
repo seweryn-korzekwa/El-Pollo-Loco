@@ -6,7 +6,7 @@ class MovableObjects {
     width = 100;
     img;
     imageCache = {};
-    currentImage = 0;
+    currentImage = 1;
     speed = 0.5;
     otherDirection = false;
 
@@ -31,5 +31,12 @@ class MovableObjects {
         setInterval(() => {
             this.x -= this.speed;
         }, 1000 / 60);
+    }
+
+    playAnimation(img) {
+        let i = this.currentImage % img.length;
+        let path = img[i];
+        this.img = this.imageCache[path];
+        this.currentImage++;
     }
 }
