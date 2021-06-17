@@ -9,6 +9,21 @@ class MovableObjects {
     currentImage = 1;
     speed = 0.5;
     otherDirection = false;
+    speedY = 0;
+    acceleration = 2.5;
+
+    applyGravity() {
+        setInterval(() => {
+            if (this.isAboveGrund()) {
+                this.y -= this.speedY;
+                this.speedY -= this.acceleration;
+            }
+        }, 1000 / 25);
+    }
+
+    isAboveGrund() {
+        return this.y < 155
+    }
 
     loadImage(path) {
         this.img = new Image();
