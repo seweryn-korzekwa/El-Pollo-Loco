@@ -1,7 +1,7 @@
 class Character extends MovableObjects {
 
     height = 280;
-    y = 55;
+    y = 155;
     speed = 3;
     IMG_WALKING = [
         'img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png',
@@ -41,6 +41,9 @@ class Character extends MovableObjects {
             if (this.world.keyboard.LEFT && this.x > 120) {
                 this.otherDirection = true
                 this.x -= this.speed;
+            }
+            if (this.world.keyboard.UP && !this.isAboveGrund()) {
+                this.speedY = 20;
             }
             this.world.camera_x = -this.x + 120
         }, 1000 / 60);
