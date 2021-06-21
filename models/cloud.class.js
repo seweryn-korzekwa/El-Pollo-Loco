@@ -11,6 +11,7 @@ class cloud extends MovableObjects {
 
     }
 
+    /* TODO moveLeft -> setInetrval */
     animate() {
         this.moveLeft()
     }

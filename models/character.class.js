@@ -38,8 +38,7 @@ class Character extends MovableObjects {
                 this.moveRight();
             }
             if (this.world.keyboard.LEFT && this.x > 120) {
-                this.otherDirection = true
-                this.x -= this.speed;
+                this.moveLeft();
             }
             if (this.world.keyboard.UP && !this.isAboveGrund()) {
                 this.jump();
