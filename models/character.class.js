@@ -35,15 +35,14 @@ class Character extends MovableObjects {
     animate() {
         setInterval(() => {
             if (this.world.keyboard.RIGHT && this.x < this.world.level.levelEndX) {
-                this.otherDirection = false;
-                this.x += this.speed;
+                this.moveRight();
             }
             if (this.world.keyboard.LEFT && this.x > 120) {
                 this.otherDirection = true
                 this.x -= this.speed;
             }
-            if (this.world.keyboard.UP) {
-                this.speedY = 20;
+            if (this.world.keyboard.UP && !this.isAboveGrund()) {
+                this.jump();
             }
             this.world.camera_x = -this.x + 120
         }, 1000 / 60);
@@ -57,10 +56,6 @@ class Character extends MovableObjects {
                 }
             }
         }, 1000 / 8);
-    }
-
-    jump() {
-        console.log('Jump')
     }
 
 }
