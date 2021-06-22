@@ -26,6 +26,26 @@ class MovableObjects {
         }, 1000 / 25);
     }
 
+    draw(ctx) {
+        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    }
+
+    drawFrame(ctx) {
+        if (this instanceof Character || this instanceof Chicken) {
+            ctx.beginPath();
+            ctx.lineWidth = '1';
+            ctx.rect(this.x, this.y, this.width, this.height);
+            ctx.stroke();
+        }
+    }
+
+    isColliding(object) {
+        return this.x + this.width > object.x &&
+            this.y + this.height > object.y &&
+            this.x < object.x &&
+            this.y < object.y + object.height;
+    }
+
     isAboveGrund() {
         return this.y < 155
     }
@@ -44,13 +64,15 @@ class MovableObjects {
     }
 
     moveRight() {
-        console.log('Moving right')
+        this.x += this.speed;
     };
 
     moveLeft() {
-        setInterval(() => {
-            this.x -= this.speed;
-        }, 1000 / 60);
+        this.x -= this.speed;
+    }
+
+    jump() {
+        this.speedY = 20;
     }
 
     playAnimation(img) {
