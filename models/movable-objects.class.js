@@ -34,6 +34,13 @@ class MovableObjects {
         }
     }
 
+    isColliding(object) {
+        return this.x + this.width > object.x &&
+            this.y + this.height > object.y &&
+            this.x < object.x &&
+            this.y < object.y + object.height;
+    }
+
     isAboveGrund() {
         return this.y < 155
     }
