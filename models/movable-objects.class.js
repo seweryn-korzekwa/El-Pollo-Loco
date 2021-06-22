@@ -21,6 +21,17 @@ class MovableObjects {
         }, 1000 / 25);
     }
 
+    draw(ctx) {
+        ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    }
+
+    drawFrame(ctx) {
+        ctx.beginPath();
+        ctx.lineWidth = '1';
+        ctx.rect(this.x, this.y, this.width, this.height);
+        ctx.stroke();
+    }
+
     isAboveGrund() {
         return this.y < 155
     }
