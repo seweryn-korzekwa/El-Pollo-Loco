@@ -47,6 +47,18 @@ class MovableObjects {
             this.y < object.y + object.height;
     }
 
+    hit() {
+        this.energy -= 5;
+        if (this.energy < 0) {
+            this.energy = 0;
+        }
+        console.log(this.energy);
+    }
+
+    isDead() {
+        return this.energy === 0;
+    }
+
     isAboveGrund() {
         return this.y < 155
     }

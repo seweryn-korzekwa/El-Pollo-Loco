@@ -22,12 +22,22 @@ class Character extends MovableObjects {
         'img/2.Secuencias_Personaje-Pepe-correcciขn/3.Secuencia_salto/J-38.png',
         'img/2.Secuencias_Personaje-Pepe-correcciขn/3.Secuencia_salto/J-39.png'
     ];
+    IMG_DEAD = [
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/5.Muerte/D-51.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/5.Muerte/D-52.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/5.Muerte/D-53.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/5.Muerte/D-54.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/5.Muerte/D-55.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/5.Muerte/D-56.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/5.Muerte/D-57.png'
+    ]
     world;
 
     constructor() {
         super().loadImage('img/2.Secuencias_Personaje-Pepe-correcciขn/2.Secuencia_caminata/W-21.png');
         this.loadImages(this.IMG_WALKING);
         this.loadImages(this.IMG_JUMPING);
+        this.loadImages(this.IMG_DEAD);
         this.animate();
         this.applyGravity();
     }
@@ -52,7 +62,9 @@ class Character extends MovableObjects {
         }, 1000 / 60);
 
         setInterval(() => {
-            if (this.isAboveGrund()) {
+            if (this.isDead()) {
+                this.playAnimation(this.IMG_DEAD)
+            } else if (this.isAboveGrund()) {
                 this.playAnimation(this.IMG_JUMPING)
             } else {
                 if (this.world.keyboard.LEFT || this.world.keyboard.RIGHT) {
