@@ -31,6 +31,11 @@ class Character extends MovableObjects {
         'img/2.Secuencias_Personaje-Pepe-correcciขn/5.Muerte/D-56.png',
         'img/2.Secuencias_Personaje-Pepe-correcciขn/5.Muerte/D-57.png'
     ]
+    IMG_HURT = [
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/4.Herido/H-41.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/4.Herido/H-42.png',
+        'img/2.Secuencias_Personaje-Pepe-correcciขn/4.Herido/H-43.png'
+    ]
     world;
 
     constructor() {
@@ -38,6 +43,7 @@ class Character extends MovableObjects {
         this.loadImages(this.IMG_WALKING);
         this.loadImages(this.IMG_JUMPING);
         this.loadImages(this.IMG_DEAD);
+        this.loadImages(this.IMG_HURT);
         this.animate();
         this.applyGravity();
     }
@@ -63,12 +69,14 @@ class Character extends MovableObjects {
 
         setInterval(() => {
             if (this.isDead()) {
-                this.playAnimation(this.IMG_DEAD)
+                this.playAnimation(this.IMG_DEAD);
+            } else if (this.isHurt()) {
+                this.playAnimation(this.IMG_HURT);
             } else if (this.isAboveGrund()) {
-                this.playAnimation(this.IMG_JUMPING)
+                this.playAnimation(this.IMG_JUMPING);
             } else {
                 if (this.world.keyboard.LEFT || this.world.keyboard.RIGHT) {
-                    this.playAnimation(this.IMG_WALKING)
+                    this.playAnimation(this.IMG_WALKING);
                 }
             }
         }, 1000 / 8);
