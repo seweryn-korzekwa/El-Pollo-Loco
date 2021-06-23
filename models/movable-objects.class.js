@@ -11,6 +11,7 @@ class MovableObjects {
     otherDirection = false;
     speedY = 0;
     acceleration = 2.5;
+    energy = 100;
 
     applyGravity() {
         setInterval(() => {
