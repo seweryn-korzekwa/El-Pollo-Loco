@@ -9,7 +9,7 @@ function init() {
 
 window.addEventListener("keydown", event => {
     switch (event.code) {
-        case 'ArrowRight':keybeard.RIGHT = true; break;
+        case 'ArrowRight': keybeard.RIGHT = true; break;
         case 'ArrowLeft': keybeard.LEFT = true; break;
         case 'ArrowUp': keybeard.UP = true; break;
         case 'ArrowDown': keybeard.DOWN = true; break;
