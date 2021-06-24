@@ -68,13 +68,4 @@ class MovableObjects extends DrawableObject {
     jump() {
         this.speedY = 20;
     }
-
-    drawFrame(ctx) {
-        if (this instanceof Character || this instanceof Chicken) {
-            ctx.beginPath();
-            ctx.lineWidth = '1';
-            ctx.rect(this.x, this.y, this.width, this.height);
-            ctx.stroke();
-        }
-    }
 }
